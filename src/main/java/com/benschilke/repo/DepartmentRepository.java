@@ -8,8 +8,6 @@ import com.benschilke.model.Department;
 @Repository
 public interface DepartmentRepository extends CrudRepository<Department, Long>{
 
-//	List<Customer> findByLastName(String lastName);
-
-//	void saveAll(List<Customer> asList);
+	Department findByDeptName(String deptName);
 	
 }

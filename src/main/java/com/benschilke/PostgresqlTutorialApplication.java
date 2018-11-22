@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.benschilke.repo.CustomerRepository;
+import com.benschilke.repo.DepartmentRepository;
 
 /**
  * 
@@ -17,7 +18,9 @@ import com.benschilke.repo.CustomerRepository;
 public class PostgresqlTutorialApplication implements CommandLineRunner {
 	
 	@Autowired
-	CustomerRepository repository;
+	CustomerRepository customerRepository;
+	@Autowired
+	DepartmentRepository departmentRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PostgresqlTutorialApplication.class, args);
@@ -26,6 +29,7 @@ public class PostgresqlTutorialApplication implements CommandLineRunner {
 	@Override
 	public void run(String... arg0) throws Exception {
 		// clear all record if existed before do the tutorial with new data 
-		repository.deleteAll();
+		customerRepository.deleteAll();
+		departmentRepository.deleteAll();
 	}
 }

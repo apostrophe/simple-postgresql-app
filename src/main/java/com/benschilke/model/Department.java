@@ -20,7 +20,6 @@ public class Department {
 	@Column(name="deptname")
 	private String deptName;
 	
-//	@OneToMany
 	public Department(String deptName) {
 		this.deptName = deptName;	
 	}

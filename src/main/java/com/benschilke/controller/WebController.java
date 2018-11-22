@@ -26,10 +26,18 @@ public class WebController {
 	@RequestMapping("/save")
 	public String process() {
 		
-		Department salesDept = new Department("SALES");
-		departmentRepository.save(salesDept);
-		Department serviceDept = new Department("SERVICE");
-		departmentRepository.save(serviceDept);
+		// check if departments exist, create them if they don't 
+		Department salesDept = departmentRepository.findByDeptName("SALES");
+		if (salesDept == null) {
+			salesDept = new Department("SALES");
+			departmentRepository.save(salesDept);
+		}
+
+		Department serviceDept = departmentRepository.findByDeptName("SERVICE");
+		if (serviceDept == null) {
+			serviceDept = new Department("SERVICE");
+			departmentRepository.save(serviceDept);
+		}
 		
 		// save a single Customer
 		customerRepository.save((Customer)new Customer("Jack", "Smith", salesDept));

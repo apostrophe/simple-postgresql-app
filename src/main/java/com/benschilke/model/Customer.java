@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="customer")
 public class Customer {
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
@@ -23,9 +23,6 @@ public class Customer {
  
 	@Column(name = "lastname")
 	private String lastName;
-	
-//	@Column(name = "deptid")
-//	private int deptId;
 	
 	@ManyToOne
 	private Department department;
